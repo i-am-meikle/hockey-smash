@@ -1,0 +1,71 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.jumbotron {
+	padding-top: 10px;
+}
+
+h1 h2 {
+	margin-top: 10px;
+}
+
+a:focus {
+	text-decoration: none;
+}
+
+.tablePanel {
+	padding: 0px;
+}
+
+.challengeTable {
+	margin-bottom: 0px;
+}
+
+.challengeTable th {
+	text-align: center;
+}
+
+.dayName {
+	width: 30%;
+	font-weight: bold;
+}
+
+.activeDay .btn-link {
+	width: 100%
+}
+
+/* Contextual background colors */
+.bg-danger {
+  padding: 15px;
+}
+
+.activeDay {
+	text-align: center;
+}
+
+.weekNumber {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#challengeTable th {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.badge-success {
+	color: #ffff;
+	background-color: #5cb85c;
+	font-size: 15px;
+}
+
+.carousel-control.right {
+	background-image: none;
+}
+
+.carousel-control.left {
+	background-image: none;
+}

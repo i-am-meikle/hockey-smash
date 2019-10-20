@@ -1,0 +1,19 @@
+no.meikle.jutulhockey.utils.DevApplicationUpdate2 update = new no.meikle.jutulhockey.utils.DevApplicationUpdate2();
+update.changePassword("13528f03-c9b0-4741-96e0-ce1a3d90967f", "jutul");An exception occurred during evaluation:  com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMappingException
+no.meikle.jutulhockey.domain.User2.HashPassword("jutul")(java.lang.String) 208eca2c7c0fc8a81c4add0b6f70fedaacad23539082c318d0debe9129cfa627
+
+// Recreate Challenges2 table.
+new DevApplicationUpdate2().recreateTable(Challenge2.class, 1L);
+
+//Recreate Challenges2 table.
+new DevApplicationUpdate2().recreateActivityTable();
+
+//Migrate users to users-2
+DevApplicationUpdate2 update = new DevApplicationUpdate2();
+update.initializeLocalDb();
+update.setDropFirst(false);
+update.migrateUsers()
+
+
+java.util.UUID.randomUUID().toString()(java.lang.String) b99f17a0-27d7-4f66-b575-0d69a876adc6
+(java.lang.String) 5f9212dd-b1a3-48a5-a66e-65258e0b7434

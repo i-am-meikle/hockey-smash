@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<constant name="struts.freemarker.templatesCache" value="true" />
+	<constant name="struts.action.extension" value="jutul" />
+	<constant name="struts.ui.theme" value="bootstrap" />
+	<constant name="struts.convention.default.parent.package"
+		value="jutul" />
+
+	<package name="jutul" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="rememberMe"
+				class="no.meikle.hockey_smash.interceptor.RememberMeInterceptor" />
+			<interceptor name="simpleAuthorization"
+				class="no.meikle.hockey_smash.interceptor.SimpleAuthorizationInterceptor" />
+
+			<interceptor-stack name="jutulStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="rememberMe">
+					<param name="cookieName">hockey-smash</param>
+				</interceptor-ref>
+				<interceptor-ref name="simpleAuthorization">
+					<param name="protectedNamespace">/private</param>
+					<param name="unauthorizedResult">smash</param>
+					<param name="authorizationSessionKey">userKey</param>
+				</interceptor-ref>
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="prepare" />
+
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="profiling" />
+
+				<interceptor-ref name="modelDriven">
+					<param name="refreshModelBeforeResult">true</param>
+				</interceptor-ref>
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize ">2147483648</param>
+				</interceptor-ref>
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel,browse,clear
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">
+						input,back,cancel,browse,clear
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="jutulStack" />
+		<default-action-ref name="smash" />
+
+		<global-results>
+			<result name="userChallenge" type="redirectAction">
+				<param name="actionName">user-challenge-status</param>
+				<param name="namespace">/private</param>
+			</result>
+			<result name="smash" type="redirectAction">
+				<param name="actionName">smash</param>
+				<param name="namespace">/</param>
+			</result>
+           <result name="error">/error.jsp</result>
+		</global-results>
+
+      <global-exception-mappings>
+           <exception-mapping exception="java.lang.Exception" result="error"/>
+      </global-exception-mappings>
+
+	</package>
+
+</struts>
