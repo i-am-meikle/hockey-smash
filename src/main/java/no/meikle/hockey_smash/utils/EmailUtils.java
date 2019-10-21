@@ -35,7 +35,7 @@ public class EmailUtils {
 		Content subject = new Content().withData("Welcome to Hockey Smash !");
 		Content textBody = new Content().withData(
 				"Welcome " + user.getFullname() + " to Hockey Smash !\n\nClick the link below to start playing.\n\n"
-						+ "http://hockey-smash.meikle.no/ \n\nEnjoy the game !\n" + "The Hockey Smash Team !");
+						+ "https://hockey-smash.meikle.dev/ \n\nEnjoy the game !\n" + "The Hockey Smash Team !");
 		Body body = new Body().withText(textBody);
 
 		// Create a message with the specified subject and body.
@@ -86,7 +86,7 @@ public class EmailUtils {
 				"Hi " + user.getFullname() + ", \n\nSomeone has requested to reset your Hockey Smash password.\n\n"
 						+ "Your username is: " + user.getFullname()
 						+ "\n\nPlease click the link below to reset your password.\n\n"
-						+ "http://hockey-smash.meikle.no/login!changePasswordRequest.jutul?key=" + user.getKey()
+						+ "https://hockey-smash.meikle.dev/login!changePasswordRequest.jutul?key=" + user.getKey()
 						+ "&team=" + user.getTeam() + "\n\n"
 						+ "If you did not request a password reset, please ignore and delete this email.\n\n"
 						+ "Enjoy the game !\n" + "The Hockey Smash Team !");

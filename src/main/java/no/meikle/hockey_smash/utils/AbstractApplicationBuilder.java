@@ -103,7 +103,7 @@ public class AbstractApplicationBuilder {
             User user = new User();
             user.setAdmin(true);
             user.setTeam(User.ADMIN_STRING);
-            user.setEmail("hockey-smash-admin@meikle.no");
+            user.setEmail("hockey-smash-admin@meikle.dev");
             user.setFullname("Superman");
             user.setPassword("Clark Kent");
 
